@@ -38,8 +38,8 @@ class ColaboradoresController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome' => 'required|string|max:255',
-            'email' => 'required|email|unique:colaboradores,email',
+            'nome' => 'required|string|min:5|max:255',
+            'email' => 'required|email|min:5|max:255|unique:colaboradores,email',
             'cargo_id' => 'required|exists:cargos,id',
             'unidade_id' => 'required|exists:unidades,id',
         ]);
